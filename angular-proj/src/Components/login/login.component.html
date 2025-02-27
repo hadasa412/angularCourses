@@ -1,0 +1,22 @@
+<div class="login-container">
+    <h2>התחברות</h2>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <label for="loginEmail">אימייל</label>
+      <input id="loginEmail" formControlName="loginEmail" type="email" required />
+      @if (loginForm.get('loginEmail')?.invalid && loginForm.get('loginEmail')?.touched) {
+        <div>
+          יש להזין אימייל תקין.
+        </div>
+      }
+  
+      <label for="loginPassword">סיסמה</label>
+      <input id="loginPassword" formControlName="loginPassword" type="password" required />
+      @if (loginForm.get('loginPassword')?.invalid && loginForm.get('loginPassword')?.touched) {
+        <div>
+          יש להזין סיסמה.
+        </div>
+      }
+      <button type="submit"[disabled]="loginForm.invalid">התחברות</button>
+    </form>
+  </div>
+  
