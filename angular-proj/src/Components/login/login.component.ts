@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
-import { AuthService } from '../auth.service';
+import { AuthService } from '../../app/Services/auth.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -27,8 +27,8 @@ export class LoginComponent {
 
   onSubmit() {
     if (this.loginForm.valid) {
-      const { email, password } = this.loginForm.value;
-      this.authService.login({ email, password })
+      const { loginEmail, loginPassword } = this.loginForm.value;
+      this.authService.login({ email: loginEmail, password: loginPassword })
         .subscribe({
           next: (res: any) => {
             // נניח שהשרת מחזיר token אחרי התחברות

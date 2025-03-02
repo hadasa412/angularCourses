@@ -1,0 +1,6 @@
+@for ( course of courses; track course.id) {
+  <h3>{{ course.name }}</h3>
+  <p>{{ course.description }}</p>
+  <button (click)="enroll(course.id)" [disabled]="course.enrolled">הירשם</button>
+  <button (click)="leave(course.id)" [disabled]="!course.enrolled">עזוב קורס</button>
+}
